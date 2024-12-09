@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"></script>
+</head>
+<body>
+    
+    <ul id="myList">
+        <li>매매대금지급기일연기</li>
+        <li>매매대금지급기일연기권한</li>
+        <li>대금지급기일연기</li>
+        <li>대금지급기일연기권한</li>
+        <li>지급기일연기</li>
+        <li>지급기일연기권한</li>
+        <li>기일연기</li>
+        <li>기일연기권한</li>
+        <li>대금기일연기권한</li>
+        <li>대금연기권한</li>
+        <li>대금연기</li>
+        <li>연기권한</li>
+        <li>연기대리</li>
+        <li>연기</li>
+
+
+
+
+    </ul>
+    
+    <button id="sortButton">가나다 순 정렬</button>
+
+
+</body>
+</html>
+<script>
+    $('#sortButton').click(function () {
+
+        const items = $('#myList li').get();
+        items.sort(function (a, b) {
+            return $(a).text().localeCompare($(b).text(), 'ko');
+        });
+
+        $('#myList').empty().append(items);
+    });
+</script>

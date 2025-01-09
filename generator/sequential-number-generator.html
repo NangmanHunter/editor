@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"></script>
+
+</head>
+<body>
+    
+
+
+
+
+    <div class="n" contenteditable="true"></div>
+    <div class="n" contenteditable="true"></div>
+    <div class="m" contenteditable="true"></div>
+
+
+
+
+
+
+
+</body>
+</html>
+<style>
+    .n,.m{
+        padding: 10px;
+
+    }
+</style>
+<script>
+    // 가로출력
+    // $(`.n`).eq(1).on('input', function(){
+    //     const n1=$(`.n`).eq(0).text();
+    //     console.log(n1);
+    //     const n2=$(`.n`).eq(1).text();
+    //     $(`.m`).text(``);
+    //     for(let i=n1; i<=n2 ; i++){
+    //         const t=$(`.m`).text();
+    //         $(`.m`).text(`${t} ${i}`);
+    //     }
+
+    // })
+
+</script>
+<script>
+    //세로출력
+    $(`.n`).eq(1).on('input', function(){
+        const n1=$(`.n`).eq(0).text();
+        console.log(n1);
+        const n2=$(`.n`).eq(1).text();
+        $(`.m`).text(``);
+        for(let i=n1; i<=n2 ; i++){
+            const t=$(`.m`).html();
+            const t_=`${t} <br> ${i}`;
+            
+            $(`.m`).html(`${t_}`);
+        }
+
+    })
+
+</script>

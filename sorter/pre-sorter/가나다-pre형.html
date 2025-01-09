@@ -11,17 +11,18 @@
 </head>
 <body>
     
-    <ul id="myList">
-        <li>협력의무불이행거래계약해제</li>
-        <li>협력의무불이행계약해제</li>
-        <li>협력불이행계약해제</li>
-        <li>협력불이행해제</li>
-        <li>협력해제</li>
+    <pre id="myList">
+        고의등록추정
+        등록고의추정
+        등록된사실을알았던것추정
+        등록사실고의추정
+        등록사실알았던것추정
+        등록사실알았던추정
+        등록사실을알았던것추정
+        이미등록된사실을알았던것으로추정
+        이미등록된사실을알았던것추정
 
-
-        
-
-    </ul>
+    </pre>
     <h2>👆Click</h2>
 
 
@@ -50,19 +51,24 @@
 </style>
 <script>
     (function(){
-        const items = $('#myList li').get();
-        items.sort(function (a, b) {
-            return $(a).text().localeCompare($(b).text(), 'ko');
-        });
+        const t = $('#myList').text();
+        console.log(t);
 
-        for(let item of items){
-            const t=$(item).text();
-            $(item).text(`<li>${t}</li>`);
-        }
+        let sortedArray = t
+        .split(" ") 
+        .map(item => item.trim())
+        .filter(item => item !== "")
+        .sort((a, b) => a.localeCompare(b, 'ko')); 
 
-        $('#myList').empty().append(items);
+        console.log(sortedArray);
+        $('#myList').text(sortedArray.join("\n"));
+
         
     })();
+
+
+
+
 
 
     $(`#myList`).click(function(e){

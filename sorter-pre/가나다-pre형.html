@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"></script>
+</head>
+<body>
+    
+    <pre id="myList">
+        광협
+        대소
+        방착
+        장단
+        고저
+        쾌착
+        허실
+        완급
+        박협
+        광착
+        대협
+        원근
+        피밀
+        방협
+        광단
+        범한
+
+    </pre>
+    <h2>👆Click</h2>
+
+
+</body>
+</html>
+<style>
+    .copy{
+        position: absolute;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.3);
+        filter: drop-shadow(0px 0px 5px white);
+        padding: 10px;
+        border-radius: 10px;
+
+        opacity: 1;
+        transform: scale(1);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+
+        font-size: 9px;
+        text-align: center;
+    }
+    .fade-out {
+        opacity: 0;
+        transform: scale(1.3) translateY(-20px);
+    }
+</style>
+<script>
+    (function(){
+        const t = $('#myList').text();
+        console.log(t);
+
+        let sortedArray = t
+        .split(" ") 
+        .map(item => item.trim())
+        .filter(item => item !== "")
+        .sort((a, b) => a.localeCompare(b, 'ko')); 
+
+        console.log(sortedArray);
+        $('#myList').text(sortedArray.join("\n"));
+
+        
+    })();
+
+
+
+
+
+
+    $(`#myList`).click(function(e){
+        const t_=$(this).text();
+        const t=t_.replaceAll(`</li>`,`</li>\n`);
+
+        console.log(t);
+        navigator.clipboard.writeText(t)
+        .then(()   => { 
+
+                $(this).append(`<span class="copy" style="top:0; left:0;">
+                    ${t} Copy❣️
+                </span>`)
+                setTimeout(() => {$(`.copy`).addClass("fade-out");}, 100); 
+                setTimeout(() => {$(`.copy`).remove();            }, 600);
+
+            })
+        .catch(err => { console.error("Failed to copy: ", err); });
+
+    })
+
+
+</script>

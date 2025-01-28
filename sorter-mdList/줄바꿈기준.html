@@ -13,9 +13,10 @@
 
 </head>
 <body>
+   
+
+
     
-
-
 
 
     <h1>입력받아 정렬하기</h1>
@@ -150,17 +151,13 @@
 
 
     $(`#result-area`).click(function(e){
-        const t_=$(this).text();
-
-        let t = t_.replace(/- /g, (match, offset, string) => {
-            // offset을 통해 현재 위치가 첫 번째 이후인지 확인
-            let firstIndex = string.indexOf("- ");
-            return offset === firstIndex ? match : "\n- ";
-        });
-
-
-
+        const t=$(this).html()
+                    .replaceAll(`<li>`,``)
+                    .replaceAll(`</li>`,`\n`);
         console.log(t);
+
+
+
         navigator.clipboard.writeText(t)
         .then(()   => { 
 

@@ -66,6 +66,7 @@
 
 
 
+
         
 </style>
 <script>
@@ -83,6 +84,30 @@
                 let sortedItems = items.sort(function (a, b) {
                     return a.substring(2).localeCompare(b.substring(2));
                 });
+                /*
+                a.substring(2)
+                ㄴ"가나다라"▶"다라"
+                ㄴ(- )형태
+                ㄴ당해부분자르기위해사용
+                그러나
+                ㄴ포함해서도되고.
+                ㄴ필요없는부분.
+                더하여
+                ㄴ(-)없는경우도
+                ㄴ상정할때는
+                ㄴ그냥아싸리
+                ㄴ통으로하는게
+                ㄴ오히려더편함.
+                굳이
+                ㄴ구별실익임.
+                ㄴ굳이분류.
+                최적화
+                ㄴ최효율
+                ㄴ공통성극화
+                ㄴ공통성추구.
+                ㄴ모듈화만추구지양
+                ㄴ구체화만추구지양
+                */
 
                 // 결과 출력
                 let resultArea = $("#result-area");

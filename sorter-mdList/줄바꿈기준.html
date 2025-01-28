@@ -81,8 +81,11 @@
 
                 // 정렬 수행
                 let sortedItems = items.sort(function (a, b) {
-                    return a.substring(2).localeCompare(b.substring(2));
+                    return a.localeCompare(b);
                 });
+                console.log(
+                    sortedItems
+                );
 
                 // 결과 출력
                 let resultArea = $("#result-area");
@@ -120,8 +123,6 @@
         
 
         (function(){
-
-
 
             const items = $('#result-area li').get();
             console.log(items);

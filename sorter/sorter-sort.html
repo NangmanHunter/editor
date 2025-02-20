@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"></script>
+
+	<link rel='stylesheet' href='../res/darkmode.css'/>
+	<link rel='stylesheet' href='../res/message-copy.css'/>
+
+</head>
+<body>
+    
+
+
+
+    <div style="margin: 0 0 0 150px; padding: 30px;">
+        <h1>정렬입력</h1>
+        <textarea id="t" rows="10"  
+            placeholder="1입력
+                            2입력
+                            3입력"
+        ></textarea>
+        <h1>정렬결과</h1>
+        <textarea id="t_" rows="10"  
+            placeholder="1결과
+                        2결과
+                        3결과"
+        ></textarea>
+    </div>
+
+
+
+</body>
+</html>
+<style>
+
+    textarea::placeholder {
+        white-space: pre-line;
+    }
+</style>
+<script src="../res/nav.js"></script>
+<script src="../res/message-copy.js"></script>
+<script>
+     $("#t").on("focusout", function () {
+                let v = $("#t").val();
+                let i = v.split("\n").filter(line => line.trim() !== "");
+                let s = i.sort();
+
+                let t_ = $("#t_");
+                t_.empty();
+                s.forEach(function (i_) {
+                    t_.append(`${i_}\n`);
+                });
+               
+                let v_ = $("#t_").val();
+                copy(v_);
+    });
+</script>
+<script>
+    function copy(t){
+        navigator.clipboard.writeText(t)
+            .then(()   => { 
+                showMessage("Copy❣️");
+            })
+            .catch(e => { console.eor("Failed to copy: ", e); });
+    }
+</script>

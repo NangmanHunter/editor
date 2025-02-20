@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"></script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+        background-color: #212121;
+        color: #ececec;
+    }
+    #nav {
+        position: absolute;
+        top: 0;
+        margin: 0;
+        width: 150px;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    a:hover {
+        filter: invert(1);
+    }
+</style>
+<script>
+    $(`body`).prepend(`
+    <ul id="nav">
+        <li><a href="../sorter/sorter-sort.html">sorter-줄단위</a></li>
+        <li><a href="../sorter/sorter-sort.html">sorter-줄단위</a></li>
+    </ul>
+`)
+</script>

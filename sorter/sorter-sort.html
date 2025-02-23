@@ -53,8 +53,14 @@
 
                 let t_ = $("#t_");
                 t_.empty();
-                s.forEach(function (i_) {
-                    t_.append(`${i_}\n`);
+                s.forEach(function (i_, i2) {
+
+                    if(i2!=s.length-1){
+                        t_.append(`${i_}\n`);
+                    }else{
+                        t_.append(`${i_}`);
+                    }
+
                 });
                
                 let v_ = $("#t_").val();
